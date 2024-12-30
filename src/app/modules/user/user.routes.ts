@@ -10,14 +10,15 @@ const router = express.Router();
 router.post(
    '/create-admin',
    // authGuard(UserRole.SUPER_ADMIN, UserRole.ADMIN),
-   fileUploader.upload.single('file'),
-   (req: Request, res: Response, next: NextFunction) => {
-      req.body = userValidationSchema.createAdminSchema.parse(
-         JSON.parse(req.body.data)
-      );
+   // fileUploader.upload.single('file'),
+   // (req: Request, res: Response, next: NextFunction) => {
+   //    req.body = userValidationSchema.createAdminSchema.parse(
+   //       JSON.parse(req.body.data)
+   //    );
 
-      return userController.createAdmin(req, res, next);
-   }
+   //    return 
+      userController.createAdmin
+   // }
 );
 router.post(
    '/create-author',

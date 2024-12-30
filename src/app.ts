@@ -14,17 +14,17 @@ app.use('/api/v1', router);
 
 app.use(globalErrorHandler);
 
-app.use((req: Request, res: Response, next: NextFunction) => {
-   res.status(httpStatus.NOT_FOUND).json({
-      success: false,
-      message: 'Oops! Looks like you hit the wrong route',
-      error: {
-         path: req.originalUrl,
-         error: `The requested URL was not found on this server.`,
-         suggestion: 'Double-check the URL',
-      },
-   });
-});
+// app.use((req: Request, res: Response, next: NextFunction) => {
+//    res.status(httpStatus.NOT_FOUND).json({
+//       success: false,
+//       message: 'Oops! Looks like you hit the wrong route',
+//       error: {
+//          path: req.originalUrl,
+//          error: `The requested URL was not found on this server.`,
+//          suggestion: 'Double-check the URL',
+//       },
+//    });
+// });
 
 app.get('/', (req: Request, res: Response) => {
    res.send('Hello World with some bug!');

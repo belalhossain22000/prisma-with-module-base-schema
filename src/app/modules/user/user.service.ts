@@ -10,12 +10,13 @@ import uploadImageS3 from '../../../helpers/s3Uploader';
 // const meiliAuthorIndex = meiliClient.index('authors');
 
 const createAdmin = async (req: any): Promise<Admin> => {
-   if (req.file) {
-      const uploadedFileUrl = await uploadImageS3(req.file);
-      // const uploadedFile = await fileUploader.saveToCloudinary(req.file);
-      // req.body.admin.profilePhoto = uploadedFile?.secure_url;
-      req.body.admin.profilePhoto = uploadedFileUrl;
-   }
+   console.log(req.body);
+   // if (req.file) {
+   //    const uploadedFileUrl = await uploadImageS3(req.file);
+   //    // const uploadedFile = await fileUploader.saveToCloudinary(req.file);
+   //    // req.body.admin.profilePhoto = uploadedFile?.secure_url;
+   //    req.body.admin.profilePhoto = uploadedFileUrl;
+   // }
 
    const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
