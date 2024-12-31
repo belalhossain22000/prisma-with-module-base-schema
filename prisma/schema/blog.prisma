@@ -3,7 +3,7 @@ model Blog {
     title      String
     content    String
     coverImage String?
-    authorId   String
+    authorId   String     @db.ObjectId
     author     Author     @relation(fields: [authorId], references: [id])
     visibility Visibility @default(PUBLIC)
     createdAt  DateTime   @default(now())
@@ -14,11 +14,11 @@ model Blog {
 }
 
 model Comment {
-   id         String     @id @default(auto()) @map("_id") @db.ObjectId
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
     content   String
-    authorId  String
+    authorId  String   @db.ObjectId
     author    Author   @relation(fields: [authorId], references: [id])
-    blogId    String @db.ObjectId
+    blogId    String   @db.ObjectId
     blog      Blog     @relation(fields: [blogId], references: [id])
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
